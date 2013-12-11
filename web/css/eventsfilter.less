@@ -1,0 +1,29 @@
+@import 'global';
+
+body.full { background: @colors_bg_body url('/images/body_bg.png') top left repeat; }
+#faux-body
+{
+  padding-bottom: 100px;  
+}  
+.filter-data tr.even
+{
+  background: darken(@colors_bg_component, 5%);
+}
+.page-component
+{
+  @border_radius_native(5px);
+  @box_shadow_native();  
+  &.accessory
+  {
+    float: left;
+    left: 0;
+    .filter-form input.search
+    {
+      width: 218px;
+    }
+  }
+  &.main
+  {
+    float: right;   
+  }
+}

@@ -1,0 +1,807 @@
+MigrationVersion:
+  columns:
+    version:
+      type: integer
+      notnull: true
+      default: 0
+
+sfGuardUser:
+  columns:
+    first_name:
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+      notnull: true
+    last_name:
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+      notnull: true
+    full_name:
+      type: string(510)
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+      notnull: true
+    email_address:
+      email: { check_mx: false }
+      notnull: true
+    profile_id:
+      type: integer
+      unique: true
+  relations:
+    Profile:
+      type: one
+      foreignType: one
+      foreignAlias: User
+      
+Tag:
+  columns:
+    tag_heading_id:
+      type: integer
+  relations:
+    TagHeading:
+      onDelete: set null
+      onUpdate: cascade
+      
+TagHeading:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(30)
+      regexp: <?php echo sfConfig::get('app_regex_name') . "\n" ?>
+    
+Profile:
+  actAs:
+    Taggable:
+    Timestampable:
+  columns:
+    name:
+      type: string(60)
+      notnull: true
+    location_id:
+      type: integer       
+    media_item_id:
+      type: integer      
+    blurb:
+      type: text
+    is_group:
+      type: boolean
+      notnull: true
+      default: false
+    home_zip_code:
+      type: string(6)
+      regexp: /[A-Za-z0-9]{5,6}/
+    studio_zip_code:
+      type: string(6)
+      regexp: /[A-Za-z0-9]{5,6}/
+    display_email:
+      type: boolean
+      notnull: true
+      default: false
+  indexes:
+    name:
+      fields: [name]
+  relations:
+    Picture:
+      class: aMediaItem
+      local: media_item_id
+      foreign: id
+      type: one
+      onDelete: SET NULL
+    Members:
+      class: Profile
+      type: many
+      refClass: ProfileGroupMember
+      foreignAlias: Groups
+      foreign: member_profile_id
+      local: group_profile_id
+    Location:
+      onDelete: restrict
+      onUpdate: cascade      
+    Disciplines:
+      class: Discipline
+      refClass: ProfileDiscipline
+      foreignAlias: Profiles
+      foreign: discipline_id
+      local: profile_id
+    Categories:
+      class: Category
+      refClass: ProfileCategory
+      foreignAlias: Profiles
+      foreign: category_id
+      local: profile_id 
+    Owners:
+      class: sfGuardUser
+      refClass: ProfileOwner
+      foreignAlias: OwnedProfiles
+      foreign: user_id
+      local: profile_id
+      
+ProfileUrl:
+  columns:
+    profile_id:
+      type: integer
+    type:
+      type: string(20)
+      notnull: true
+    url:
+      type: string(255)
+      url: true      
+  relations:
+    Profile:
+      type: one
+      foreignType: many
+      foreignAlias: Urls 
+  
+      
+ProfileGroupMember:
+  actAs:
+    Timestampable:
+  columns:
+    group_profile_id:
+      type: integer
+      primary: true
+    member_profile_id:
+      type: integer
+      primary: true
+  relations:
+    Group:
+      class: Profile
+      local: group_profile_id
+      foreignAlias: ProfileGroupMemberships
+    Member:
+      class: Profile
+      local: member_profile_id      
+      foreignAlias: ProfileMemberGroups
+      
+Event:
+  actAs:
+    Timestampable:
+    Taggable:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    venue_id:
+      type: integer
+    event_type_id:
+      type: integer
+      notnull: true
+    media_item_id:
+      type: integer
+    name:
+      type: string(100)
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+      notnull: true
+    blurb:
+      type: text      
+    min_cost:
+      type: decimal
+      scale: 2
+      range: [0, 9999]
+    max_cost:
+      type: decimal
+      scale: 2
+      range: [0, 9999]      
+    url:
+      type: string(255)
+      url: true
+    ticket_url:
+      type: string(255)
+      url: true
+    is_published:
+      type: boolean
+      default: false
+      notnull: true
+    suggested_venue_name:
+      type: string(50)
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>      
+  indexes:
+    name:
+      fields: [name]
+    is_published:
+      fields: [is_published]
+  relations:
+    Picture:
+      class: aMediaItem
+      local: media_item_id
+      foreign: id
+      type: one
+      onDelete: SET NULL
+      onUpdate: cascade
+    Venue:
+      onDelete: restrict
+      onUpdate: cascade
+    EventType:
+      onDelete: restrict
+      onUpdate: cascade      
+    Profiles:
+      class: Profile
+      refClass: EventProfile
+      foreignAlias: Events
+      foreign: profile_id
+      local: event_id
+    Disciplines:
+      class: Discipline
+      refClass: EventDiscipline
+      foreignAlias: Events
+      foreign: discipline_id
+      local: event_id
+    Owners:
+      class: sfGuardUser
+      refClass: EventOwner
+      foreignAlias: OwnedEvents
+      foreign: user_id
+      local: event_id    
+      
+EventRecurrance:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    event_id:
+      type: integer
+      notnull: true
+    start_date:
+      type: date
+      notnull: true
+    end_date:
+      type: date
+      notnull: true
+    start_time:
+      type: time
+    end_time:
+      type: time      
+    sunday:
+      type: boolean
+      notnull: true
+      default: 0
+    monday:
+      type: boolean
+      notnull: true
+      default: 0
+    tuesday:
+      type: boolean
+      notnull: true
+      default: 0
+    wednesday:
+      type: boolean
+      notnull: true
+      default: 0
+    thursday:
+      type: boolean
+      notnull: true
+      default: 0
+    friday:
+      type: boolean
+      notnull: true
+      default: 0
+    saturday:
+      type: boolean
+      notnull: true
+      default: 0      
+  relations:
+    Event:
+      onDelete: cascade
+      onUpdate: cascade      
+      foreignAlias: EventRecurrance
+      foreignType: one
+      
+EventOccurance:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    event_id:
+      type: integer
+      notnull: true    
+    start_date:
+      type: date
+      notnull: true
+    end_date:
+      type: date
+    start_time:
+      type: time
+    end_time:
+      type: time
+    ticket_url:
+      type: string(255)
+      url: true      
+  relations:
+    Event:
+      onDelete: cascade
+      onUpdate: cascade      
+      foreignAlias: EventOccurances
+      
+Venue:
+  actAs:
+    Timestampable:
+    Addressable:
+      required: true
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(100)
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+      notnull: true
+    blurb:
+      type: text
+    location_id:
+      type: integer
+      notnull: true
+    media_item_id:
+      type: integer
+    url:
+      type: string(255)
+      url: true
+  indexes:
+    name:
+      fields: [name]
+  relations:
+    Location:
+      onDelete: restrict
+      onUpdate: cascade
+    Picture:
+      class: aMediaItem
+      local: media_item_id
+      foreign: id
+      type: one
+      onDelete: SET NULL
+    VenueTypes:
+      class: VenueType
+      refClass: VenueVenueType
+      foreignAlias: Venues
+      foreign: venue_type_id
+      local: venue_id      
+    Owners:
+      class: sfGuardUser
+      refClass: VenueOwner
+      foreignAlias: OwnedVenues
+      foreign: user_id
+      local: venue_id          
+      
+VenueType:
+  actAs:
+    Timestampable:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      unique: true
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+
+VenueVenueType:
+  columns:
+    venue_id:
+      type: integer
+      notnull: true
+      primary: true
+    venue_type_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Venue:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: venue_id
+      foreign: id
+      foreignType: many
+    VenueType:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: venue_type_id
+      foreign: id
+      foreignType: many      
+      
+EventType:
+  actAs:
+    Timestampable:
+    MyNestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+    is_daily:
+      type: boolean
+      default: 0
+      notnull: true
+      
+Location:
+  actAs:
+    Timestampable:
+    MyNestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      regexp: <?php echo sfConfig::get('app_regex_realname') . "\n" ?>
+
+Discipline:
+  actAs:
+    Timestampable:
+    MyNestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      regexp: <?php echo sfConfig::get('app_regex_name') . "\n" ?>
+      
+Category:
+  actAs:
+    Timestampable:
+    MyNestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      regexp: <?php echo sfConfig::get('app_regex_name') . "\n" ?>
+      
+      
+EventProfile:
+  columns:
+    event_id:
+      type: integer
+      notnull: true
+      primary: true
+    profile_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Event:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: event_id
+      foreign: id
+      foreignType: many
+    Profile:
+      class: Profile
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: profile_id
+      foreign: id
+      foreignType: many
+
+EventDiscipline:
+  columns:
+    event_id:
+      type: integer
+      notnull: true
+      primary: true
+    discipline_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Event:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: event_id
+      foreign: id
+      foreignType: many
+    Discipline:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: discipline_id
+      foreign: id
+      foreignType: many
+      
+ProfileDiscipline:
+  columns:
+    profile_id:
+      type: integer
+      notnull: true
+      primary: true
+    discipline_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Profile:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: profile_id
+      foreign: id
+      foreignType: many
+    Discipline:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: discipline_id
+      foreign: id
+      foreignType: many
+      
+ProfileCategory:
+  columns:
+    profile_id:
+      type: integer
+      notnull: true
+      primary: true
+    category_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Profile:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: profile_id
+      foreign: id
+      foreignType: many
+    Category:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: category_id
+      foreign: id
+      foreignType: many         
+      
+EventTagging:
+  options:
+    symfony:
+      form: false
+      filter: false
+  inheritance:
+    extends: Tagging
+    type: column_aggregation
+    keyField: taggable_model
+    keyValue: Event
+  relations:
+    Event:
+      local: taggable_id
+      foreign: id
+      onDelete: cascade
+      onUpdate: cascade
+      
+ProfileTagging:
+  options:
+    symfony:
+      form: false
+      filter: false
+  inheritance:
+    extends: Tagging
+    type: column_aggregation
+    keyField: taggable_model
+    keyValue: Profile
+  relations:
+    Profile:
+      local: taggable_id
+      foreign: id
+      onDelete: cascade
+      onUpdate: cascade      
+      
+EventOwner:
+  actAs:
+    Timestampable:
+  columns:
+    event_id:
+      type: integer
+      notnull: true
+      primary: true
+    user_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Event:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: event_id
+      foreign: id
+      foreignType: many    
+    User:
+      class: sfGuardUser
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: user_id
+      foreign: id
+      foreignType: many
+      
+VenueOwner:
+  actAs:
+    Timestampable:
+  columns:
+    venue_id:
+      type: integer
+      notnull: true
+      primary: true
+    user_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Venue:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: venue_id
+      foreign: id
+      foreignType: many    
+    User:
+      class: sfGuardUser
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: user_id
+      foreign: id
+      foreignType: many
+      
+ProfileOwner:
+  actAs:
+    Timestampable:
+  columns:
+    profile_id:
+      type: integer
+      notnull: true
+      primary: true
+    user_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Profile:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: profile_id
+      foreign: id
+      foreignType: many    
+    User:
+      class: sfGuardUser
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: user_id
+      foreign: id
+      foreignType: many
+      
+Site:
+  actAs:
+    Timestampable:
+    Taggable:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      unique: true
+      notnull: true
+    org_abbr:
+      type: string(20)
+      notnull: true
+    org_name:
+      type: string(60)
+      notnull: true
+    theme:
+      type: string(20)
+      notnull: true
+      default: 'phlocal'  
+    mode:
+      type: enum(20)
+      notnull: true
+      values: [listing, entry]
+      default: listing
+    domain:
+      type: string(255)
+      notnull: true
+    logo_id:
+      type: integer
+    location_id:
+      type: integer
+  relations:
+    Location:
+      onDelete: set null
+      onUpdate: cascade
+    TagHeadings:
+      class: TagHeading
+      refClass: SiteTagHeading
+      foreignAlias: Sites
+      foreign: tag_heading_id
+      local: site_id            
+    Disciplines:
+      class: Discipline
+      refClass: SiteDiscipline
+      foreignAlias: Sites
+      foreign: discipline_id
+      local: site_id      
+    Logo:
+      class: aMediaItem
+      local: logo_id
+      foreign: id
+      type: one
+      onDelete: restrict
+      onUpdate: cascade    
+      
+SiteDiscipline:
+  columns:
+    site_id:
+      type: integer
+      notnull: true
+      primary: true
+    discipline_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Site:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: site_id
+      foreign: id
+      foreignType: many
+    Discipline:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: discipline_id
+      foreign: id
+      foreignType: many  
+      
+SiteTagHeading:
+  columns:
+    site_id:
+      type: integer
+      notnull: true
+      primary: true
+    tag_heading_id:
+      type: integer
+      notnull: true
+      primary: true
+  relations:
+    Site:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: site_id
+      foreign: id
+      foreignType: many
+    TagHeading:
+      type: one
+      onDelete: cascade
+      onUpdate: cascade
+      local: tag_heading_id
+      foreign: id
+      foreignType: many        
+    

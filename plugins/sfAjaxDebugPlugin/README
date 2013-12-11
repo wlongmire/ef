@@ -1,0 +1,64 @@
+= sfAjaxDebugPlugin =
+
+This plugin provides a way to make the web debug toolbar useful again
+for AJAX applications.
+
+== Author ==
+
+Andreas Ferber, [mailto:af+symfony@chaos-agency.de]
+
+== License ==
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+== Installation ==
+
+  * At the moment, you have to apply the patch from trac ticket #3937
+    (http://trac.symfony-project.org/ticket/3937) to the  symfony core.
+  * Install the plugin:
+    {{{
+    symfony plugin-install sfAjaxDebugPlugin
+    }}}
+  * Enable the {{{sfAjaxDebug}}} module in your applications {{{settings.yml}}}:
+    {{{
+    all:
+      .settings:
+        enabled_modules: [sfAjaxDebug]
+    }}}
+  * Clear the symfony cache:
+    {{{
+    symfony cc
+    }}}
+
+== Usage ==
+
+When the plugin is activated, on every AJAX request to the server the
+web debug toolbar is updated to reflect the last request. A request list
+is added to the toolbar that lets you choose between the web debug
+toolbars for multiple AJAX requests.
+
+== Configuration ==
+
+The plugin can be configured in your {{{settings.yml}}}:
+
+{{{
+all:
+  .settings:
+    ajax_debug:          on   # enable ajax debug toolbar
+    ajax_debug_requests: 10   # number of requests to keep in the list
+    ajax_debug_routes:   on   # register routes for sfAjaxDebugPlugin
+}}}
+
+== Compatibility ==
+
+Was tested against Symfony version 1.1.0, with the patch from ticket #3937.
+
+== History ==
+
+=== 0.1.0 ===
+  * First beta release.
+
+=== 0.2.0 ===
+  * Add a request list to keep multiple "versions" of the toolbar around.
+  * Move configuration from app.yml to settings.yml.

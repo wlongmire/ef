@@ -1,0 +1,1 @@
+<?php echo aDate::medium($event['end_date']) ?>

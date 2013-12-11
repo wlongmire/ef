@@ -1,0 +1,27 @@
+# Project files
+.git
+.gitignore
+databases.yml
+/web/uploads/*
+/cache/*
+/log/*
+/data/a_writable/*
+/web/.htaccess
+/web/.ht*.bak
+/web/css/less/*
+/data/snapshots/*
+/data/sync/*
+/data/sql/*
+*.lock
+*.lck
+
+# SCM files
+*/.svn/*
+.arch-params
+.bzr
+_darcs
+.git
+.hg
+.monotone
+.svn
+CVS

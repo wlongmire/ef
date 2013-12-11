@@ -1,0 +1,20 @@
+wfValidatorString:
+  max_length: '%max_length% characters maximum.'
+  min_length: '%min_length% characters minimum.'
+sfValidatorNumber:
+  invalid: '%value% is not a number.'
+  max: '%value% must be at most %max%.'
+  min: '%value% must be at least %min%.'
+sfValidatorInteger:
+  invalid: '%value% is not an integer.'
+  max: '%value% must be at most %max%.'
+  min: '%value% must be at least %min%.'
+wfValidatorDate:
+  max: 'Must be before %max%.'
+  min: 'Must be after %min%.'
+wfValidatorDuration:
+  max: 'Must be at most %max%.'
+  min: 'Must be at least %min%.'
+wfValidatorTime:
+  max: 'Must be at or before %max%.'
+  min: 'Must be at or after %min%.'

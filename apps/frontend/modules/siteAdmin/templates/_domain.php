@@ -1,0 +1,1 @@
+<a href="http://<?php echo $site->domain ?>" target="_blank"><?php echo $site->domain ?></a>

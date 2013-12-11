@@ -1,0 +1,74 @@
+@import '../global';
+
+.profile-sharing
+{
+  width: 500px;
+}
+.profile-form
+{
+  label[for="profile_blurb"]
+  {
+    margin-top: 48px;
+  }
+  label[for="profile_disciplines_list"],
+  label[for="profile_categories_list"],
+  label[for="profile_tags"]
+  {
+    width: auto;
+    display: block;
+    float: none;
+    margin: 15px 0 5px;
+    font-size: 1.25em;
+    .help
+    {
+      float: none !important;
+    }
+  }
+  .profile_categories_list
+  {
+    .checkbox_list > li
+    {
+      clear: left;
+      span.help
+      {
+        margin-left: 16px;
+      }
+    }
+    input[type="checkbox"]
+    {
+      margin: 2px 2px 0 0;
+      float: left;
+    }    
+  }
+  .profile_categories_list,
+  .profile_disciplines_list,
+  .profile_tags
+  {
+    .a-form-field
+    {
+      float: none;
+      clear: left;      
+    }
+  }
+  .wf-select-many.rich
+  {
+    input[type="text"]
+    {
+      padding: 2px 3px;
+    }
+  }
+}
+input.profile-url
+{
+  width: 400px;
+  display: block;
+  margin: 10px;
+  @border_radius_native(3px);
+  border:1px solid #ddd;
+  padding: 2px 3px;
+  font-size: 1.125me;
+  + h3
+  {
+    margin-top: 20px;
+  }
+}

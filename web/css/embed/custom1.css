@@ -1,0 +1,96 @@
+
+/*structure*/
+td.image_col {
+	width:200px;
+	margin:0;
+	padding:0;
+}
+
+td.title_col {
+	width:300px;
+}
+
+td.profile_col {
+	width:200px;
+	text-align: left;
+}
+
+td.venue_col {
+	width:300px;
+	text-align: left;
+}
+
+td.time_col {
+	width:200px;
+	text-align: left;
+}
+
+/*item based styles*/
+#date_heading {
+	background-color: gray;
+	color:white;
+	padding:10px;
+}
+
+#event_title {
+	text-decoration: none;
+	color: #888888;
+	font-weight: normal;
+	font-size: 14pt;
+	background-color: #dddddd;
+	padding: 5px;
+	line-height: 22pt;
+}
+
+ #profile_name {
+	text-decoration: none;
+	color: rgba(61, 54, 54, 0.88);
+	font-size: 10pt;
+	padding: 4pt;
+	margin: 0px;
+	background-color: rgba(68, 68, 68, 0.18);
+}
+
+
+#venue_name {
+	text-decoration: none;
+	color: rgba(61, 54, 54, 0.88);
+	font-size: 10pt;
+	padding: 4pt;
+	margin: 0px;
+	background-color: rgba(68, 68, 68, 0.18);
+}
+
+#discipline_name {
+	font-size: 10pt;
+}
+
+#neighborhood_name {
+	font-size: 10pt;
+}
+
+#time_text {
+	font-size: 10pt;
+}
+
+#cost_text {
+	font-size: 10pt;
+}
+
+.event_entry {
+	padding:5px;
+}
+
+/*entry level*/
+.event_entry:nth-child(2n+1) { 
+	background-color: rgb(245, 245, 245);
+} 
+
+.event_entry:nth-child(2n) { 
+	background-color: white;
+}
+
+/*general*/
+.text {
+	font-family: Helvetica;
+}

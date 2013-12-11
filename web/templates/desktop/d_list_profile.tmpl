@@ -1,0 +1,65 @@
+<div class="ef">
+
+{{#each profileGroup}}
+{{#with entry}}
+	<div class="profile_entry">
+		<table class="filter-data event">
+			<tr class="list-item">
+
+			{{#ifImageFlag}}
+			{{#ifShow 'image'}}
+			
+			<td class="col1">
+			{{#ifImageExists this}}
+			{{#with Picture}}
+				<img alt="{{name}}" width="{{getImageWidth this}}" height="{{getImageHeight this}}" src="http://www.eventsfilter.com/uploads/media_items/{{slug}}.120.75.s.{{format}}">
+			{{/with}}
+			{{else}}
+				<div style="width:120px; height:75px; display:block"></div>
+			{{/ifImageExists}}
+			</td>
+
+			{{/ifShow}}
+			{{/ifImageFlag}}
+
+			<td class="col2">
+				<p><a id="profile_title" class="detail profile text" data-id="{{id}}" data-type="profile" href="http://www.eventsfilter.com/api/profile/show/{{id}}">{{name}}</a></p>
+			</td>
+
+			<td class="col3">
+				{{#if Disciplines}}
+				{{#ifShow 'disciplines'}}
+					<p id="discipline_name" class="text">{{Disciplines.[0].name}}</p>
+				{{/ifShow}}
+				{{/if}}
+
+				{{#if Categories}}
+				{{#ifShow 'categories'}}
+					<p id="discipline_name" class="text">{{Categories.[0].name}}</p>
+				{{/ifShow}}
+				{{/if}}
+
+				{{#if Location}}
+				{{#ifShow 'location'}}
+					<p id="discipline_name" class="text">{{Location.name}}</p>
+				{{/ifShow}}
+				{{/if}}
+				
+			</td>
+
+			<td class="col4">
+				{{#hasEvents event_count}}
+				{{#ifShow 'event_count'}}
+					<a id="profile_title" class="detail events text" data-type="events" href="#">{{event_count}} events</a>
+				{{/ifShow}}
+				{{/hasEvents}}
+			</td>
+			</tr>
+		</table>
+
+		<div class="details_container" data-status="empty"></div>
+	</div>
+{{/with}}
+{{/each}}
+
+</div>

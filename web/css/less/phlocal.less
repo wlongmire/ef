@@ -1,0 +1,27 @@
+@body_font_family: monospace;
+@colors_bg_component: #f4f4f4;
+@colors_bg_body: #ccc;
+@colors_bg_content: none;
+@colors_bg_header: none;
+@colors_date_header_bg: none;
+@colors_date_header_text: #777;
+@colors_text_body: #333;
+@colors_text_header: #000;
+@colors_primary: hsl(111, 50%, 28%); /*264121*/
+@colors_primary_light_bg: hsl(111, 37%, 90%);
+@date_header_bottom_border: 1px solid #e2e2e2;
+@nav_bg_from: #606060;
+@nav_bg_to: #404040;
+@nav_anchor: #f8f8f8;
+@nav_anchor_active_bg: #111111;
+@nav_anchor_active: #f8f8f8;
+@nav_line_height: 30px;
+@nav_font_family: @body_font_family;
+
+@background: @colors_bg_body url('/images/body_bg.png') top left repeat;
+
+@page_component()
+{
+  @border_radius_native(5px);
+  @box_shadow_native();
+}

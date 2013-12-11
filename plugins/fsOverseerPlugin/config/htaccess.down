@@ -1,0 +1,14 @@
+Options +FollowSymLinks +ExecCGI
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # If file exists and its a css or png file, don't rewrite
+  # This is necessary to allow images and css on unavailable page
+  RewriteCond %{REQUEST_FILENAME} -s
+  RewriteCond %{REQUEST_URI} ^/.*?\.((css)|(png)|(ico))
+  RewriteRule ^(.*)$ $1 [QSA,L]
+    
+  # Otherwise, redirect to unavailable page
+  RewriteRule ^.*$ unavailable.php [L]
+</IfModule>

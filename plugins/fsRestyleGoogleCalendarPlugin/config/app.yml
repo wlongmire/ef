@@ -1,0 +1,6 @@
+all:
+  fs_restyle_google_calendar_plugin:
+#    calendar_url: 'a4iviiqui9m3se9fin8npifg8p0cu2in@import.calendar.google.com'
+#    css: ~
+#    less_css: '/css/google_calendar.less'
+#    js: '969ff39784188d8d017a0c60c8f2558aembedcompiled__en.js'

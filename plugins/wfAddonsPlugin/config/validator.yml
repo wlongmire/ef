@@ -1,0 +1,41 @@
+classes:
+  default: 'sfValidatorPass'
+  primary_key: 'wfValidatorDoctrineChoice'
+  foreign_key: 'wfValidatorDoctrineChoice'
+  many_to_many: 'wfValidatorDoctrineChoice'
+  email: 'wfValidatorStringEmail'
+  country: 'wfValidatorChoiceCountry'
+  image: 'wfValidatorFileImageable'
+  string_long: 'wfValidatorString'
+  string_short: 'wfValidatorString'
+  blob: 'wfValidatorString'
+  clob: 'wfValidatorString'
+  boolean: 'sfValidatorBoolean'
+  integer: 'sfValidatorInteger'
+  float: 'sfValidatorNumber'
+  decimal: 'sfValidatorNumber'
+  date: 'wfValidatorDate'
+  time: 'wfValidatorTime'
+  timestamp: 'wfValidatorDate'
+  enum: 'sfValidatorChoice'
+  unique: 'wfValidatorDoctrineUnique'
+  url: wfValidatorUrl
+  usstate: sfValidatorUsstate
+
+#any form column type listed here will prevent the validator from being passed the standard options for the form column type
+#e.g., if primary_key were NOT specified below, it could receive standard integer validator options like max/min/range
+special_types:
+  primary_key: true
+  foreign_key: true
+  email: true
+  country: true
+  image: true
+
+filter_classes:  # will override above validators for filters
+  boolean: sfValidatorChoice
+  date: sfValidatorDateRange
+  email: sfValidatorPass
+  timestamp: sfValidatorDateRange
+  image: sfValidatorPass
+  string_long: sfValidatorPass
+  string_short: sfValidatorPass

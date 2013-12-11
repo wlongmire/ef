@@ -1,0 +1,7 @@
+#the widget classes to use for generator form column types
+classes:
+  string_long: 'wfWidgetFormJqueryTextarea'
+  date: 'wfWidgetFormJqueryDate'
+
+autosize_settings:
+  date: { force: true, size: 10, length: 10 }

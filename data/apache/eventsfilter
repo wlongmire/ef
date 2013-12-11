@@ -1,0 +1,27 @@
+<VirtualHost *:80>
+  ServerAlias eventsfilter.com.localhost
+  ServerAlias *.eventsfilter.com.localhost
+  ServerAlias phlocal.com.localhost
+  ServerAlias *.phlocal.com.localhost
+  ServerAlias phillyliterarycalendar.com.localhost 
+  ServerAlias www.phillyliterarycalendar.com.localhost
+  ServerAlias calendar.theartblog.org.localhost
+  ServerAlias calendar.pifva.org.localhost
+  ServerAlias guide.livearts-fringe.org.localhost
+  ServerAlias events.designphiladelphia.org.localhost
+  AllowEncodedSlashes On
+
+  DocumentRoot "/home/jeremy/code/eventsfilter/web"
+  DirectoryIndex index.php
+  <Directory "/home/jeremy/code/eventsfilter/web">
+    AllowOverride All
+    Allow from All
+  </Directory>
+
+  Alias /sf /home/jeremy/code/eventsfilter/lib/vendor/symfony/data/web/sf
+  <Directory "/home/jeremy/code/eventsfilter/lib/vendor/symfony/data/web/sf">
+    AllowOverride All
+    Allow from All
+  </Directory>
+</VirtualHost>
+

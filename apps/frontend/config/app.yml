@@ -1,0 +1,14 @@
+dev:
+  a:
+    minify: false
+
+all:
+  location:
+    secondary_id: 11 #basically just a hack to make Philly County come up first in at the galleries
+  category:
+    individual_id: 1
+    group_id: 4
+  event_type:
+    gallery_id: 1
+    time_last_id: 1
+    default_subfilter_id: 3

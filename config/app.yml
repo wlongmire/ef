@@ -1,0 +1,47 @@
+prod:
+  a:
+    asset_group: global
+    minify: true
+    
+all:
+  a:
+    admin_routes_register: false      
+    manage_sufficient_group: admin
+    edit_sufficient_group: admin
+    engines:
+      aBlog: Blog    
+    slot_variants:
+      aImage:
+        detail:
+          options: { width: 225, height: false, resizeType: c, flexHeight: true }
+        list:
+          options: { width: 120, height: 120, resizeType: c }
+        thumb:
+          options: { width: 48, height: 48, resizeType: c }
+    templates:
+      default: Default
+    use_bundled_layout: false
+    use_bundled_javascripts:
+      jquery: false #manually include CDN version
+      jquery-ui: false #same as above
+    use_bundled_stylesheets:
+      buttons: /apostrophePlugin/css/a-buttons.less
+      colors: /apostrophePlugin/css/a-colors.less
+      components: /apostrophePlugin/css/a-components.less
+      forms: /apostrophePlugin/css/a-forms.less
+      reset: false
+  aMedia:
+    upload_credential: false
+    admin_credential: admin
+  fs_overseer_plugin:
+    production_dir: /home/eventsfilter/prod
+    production_hostname: WithFit
+    syncable_dirs:
+      - web/uploads
+      - web/css/less
+  regex:
+    name: /^[a-zA-Z0-9][^|~\`[\]{}\/]*$/
+    real_name: /^[a-zA-Z].*$/
+  sf_guard_plugin:
+    routes_register: false
+    success_signin_url: '@homepage'

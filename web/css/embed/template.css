@@ -1,0 +1,158 @@
+/*structure*/
+td.image_col {
+	width:300px;
+}
+
+td.title_col {
+	width:530px;
+}
+
+td.profile_col {
+	width:200px;
+	text-align: left;
+}
+
+td.venue_col {
+	width:200px;
+	text-align: left;
+}
+
+td.time_col {
+	width:100px;
+	text-align: left;
+}
+
+/*item based styles*/
+#date_heading {
+}
+
+/*item based styles*/
+#date_heading {
+}
+
+#event_title {
+}
+
+#event_title:hover {
+}
+
+#profile_name {
+}
+
+
+#venue_name {
+	text-decoration: none;
+}
+
+#discipline_name {
+}
+
+#neighborhood_name {
+}
+
+#time_text {
+}
+
+#cost_text {
+}
+
+.date_entry {
+}
+
+
+.event_entry {
+
+}
+
+/*entry level*/
+.event_entry:nth-child(2n+1) { 
+} 
+
+.event_entry:nth-child(2n) { 
+}
+
+/*event details*/
+.event_name{
+}
+
+.event_cost{
+}
+
+.event_type{
+}
+
+.event_occurences {
+
+}
+
+.event_image{
+}
+
+.event_blurb{
+}
+
+.event_venue_name{
+
+}
+
+.event_address_1{
+}
+
+.event_address_2{
+
+}
+
+.event_link{
+}
+
+/*profile details*/
+.profile_name{
+}
+
+.profile_image{
+
+}
+
+.profile_disciplines{
+}
+
+.profile_blurb{
+}
+
+/*venue details*/
+.venue_name{
+}
+
+.venue_address_1{
+}
+
+.venue_address_2{
+}
+
+.venue_location{
+}
+
+.venue_city_state{
+}
+
+.venue_blurb{
+}
+
+.venue_link{
+}
+
+
+/*other containers*/
+.details_container {
+}
+
+.footer {
+}
+
+.footer img{
+}
+
+/*general*/
+.text {
+}
+

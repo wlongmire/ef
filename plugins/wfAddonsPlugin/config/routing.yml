@@ -1,0 +1,7 @@
+wf_feedback_submit:
+  url: /feedback/submit
+  params: { module: wfAddons, action: feedbackSubmit }
+
+wf_apc_clear:
+  url: /apc_clear/:password
+  param: { module: wfAddons, action: apcClear }

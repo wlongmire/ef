@@ -1,0 +1,479 @@
+homepage:
+  url: /
+  param: { module: event, action: index }
+  
+event_mobile:
+  url: /m
+  param: { module: event, action: mobileIndex }
+  
+event_index: #duplicate homepage to keep them separate and semantic
+  url: /event
+  param: { module: event, action: index }
+  
+event_permalink:
+  url: /event/permalink
+  param: { module: event, action: permalink }
+  options: { extra_params_as_query_string: true }
+  
+event_paginate:
+  url: /event/paginate/:date
+  param: { module: event, action: paginate }
+    
+event_toggle_filter:
+  url: /event/filter/:filter/:value/:label
+  param: { module: event, action: toggleFilter, value: 0, label: 0 }
+  
+event_add_filter:
+  url: /event/add_filter/:filter/:value/:label
+  param: { module: event, action: addFilter, value: 0, label: 0 }
+  
+event_set_profile_with_past_hack:
+  url: /event/filter_/:filter/:value/:label
+  param: { module: event, action: setProfileWithPastHack }
+  
+event_show:
+  url: /event/:id/:name
+  param: { module: event, action: show }
+  class: sfDoctrineRoute
+  options: { model: Event, type: object, method: findObjectForShow }
+  
+
+api_event_show:
+  url: /api/event/show/:id
+  param: { module: event, action: apiShow }
+  class: sfDoctrineRoute
+  options: { model: Event, type: object, method: findObjectForShow }
+
+api_event_list:
+  url: /api/event/list
+  param: { module: event, action: apiList }
+  
+
+
+profile_index:
+  url: /profile
+  param: { module: profile, action: index }
+  
+profile_search:
+  url: /profile/search
+  param: { module: profile, action: search }
+  
+profile_edit:
+  url: /profile/edit/:tab
+  param: { module: profile, action: edit }  
+  
+profile_permalink:
+  url: /profile/permalink
+  param: { module: profile, action: permalink }  
+  options: { extra_params_as_query_string: true }
+  
+profile_paginate:
+  url: /profile/paginate/:page
+  param: { module: profile, action: paginate }
+    
+profile_toggle_filter:
+  url: /profile/filter/:filter/:value/:label
+  param: { module: profile, action: toggleFilter, value: 0, label: 0 } 
+  
+profile_add_filter:
+  url: /profile/add_filter/:filter/:value/:label
+  param: { module: profile, action: addFilter, value: 0, label: 0 }  
+  
+profile_clear:
+  url: /profile/clear
+  param: { module: profile, action: clear }  
+
+profile_show:
+  url: /profile/:id/:name
+  param: { module: profile, action: show }
+  class: sfDoctrineRoute
+  options: { model: Profile, type: object, method: findObjectForShow }
+
+api_profile_show:
+  url: /api/profile/show/:id
+  param: { module: profile, action: apiShow }
+  class: sfDoctrineRoute
+  options: { model: Profile, type: object, method: findObjectForShow }
+
+api_profile_list:
+  url: /api/profile/list
+  param: { module: profile, action: apiList }
+
+venue_show:
+  url: /venue/:id/:name
+  param: { module: venue, action: show }
+  class: sfDoctrineRoute
+  options: { model: Venue, type: object, method: findObjectForShow }
+
+api_venue_show:
+  url: /api/venue/show/:id
+  param: { module: venue, action: apiShow }
+  class: sfDoctrineRoute
+  options: { model: Venue, type: object, method: findObjectForShow }
+
+api_venue_list:
+  url: /api/venue/list
+  param: { module: Venue, action: apiList }
+
+event_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                event
+    module:               eventAdmin
+    prefix_path:          /admin/event
+    column:               id
+    with_wildcard_routes: true
+
+venue_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                venue
+    module:               venueAdmin
+    prefix_path:          /admin/venue
+    column:               id
+    with_wildcard_routes: true
+
+profile_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               profileAdmin
+    prefix_path:          /admin/profile
+    column:               id
+    with_wildcard_routes: true
+    
+user_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardUser
+    module:               userAdmin
+    prefix_path:          /admin/user
+    column:               id
+    with_wildcard_routes: true
+    
+event_type_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EventType
+    module:               eventTypeAdmin
+    prefix_path:          /admin/event-types
+    column:               id
+    with_wildcard_routes: true
+    
+venue_type_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                VenueType
+    module:               venueTypeAdmin
+    prefix_path:          /admin/venue-types
+    column:               id
+    with_wildcard_routes: true    
+
+location_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Location
+    module:               locationAdmin
+    prefix_path:          /admin/location
+    column:               id
+    with_wildcard_routes: true
+
+discipline_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Discipline
+    module:               disciplineAdmin
+    prefix_path:          /admin/discipline
+    column:               id
+    with_wildcard_routes: true
+    
+category_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Category
+    module:               categoryAdmin
+    prefix_path:          /admin/categories
+    column:               id
+    with_wildcard_routes: true    
+    
+tag_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Tag
+    module:               tagAdmin
+    prefix_path:          /admin/tags
+    column:               id
+    with_wildcard_routes: true
+    
+tag_heading_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TagHeading
+    module:               tagHeadingAdmin
+    prefix_path:          /admin/tag_headings
+    column:               id
+    with_wildcard_routes: true        
+
+sf_guard_signin:
+  url: /signin
+  param: { module: sfGuardAuth, action: signin }
+  
+sf_guard_signout:
+  url: /signout
+  param: { module: sfGuardAuth, action: signout }
+ 
+join:
+  url: /join/:claim_token
+  param: { module: user, action: new, claim_token: false }
+  requirements: { sf_method: [get, head, post] }
+  class: sfDoctrineRoute
+  options: { model: Profile, type: object, method: findObjectForClaimToken, allow_empty: true }  
+  
+user_edit:
+  url: /user/edit
+  param: { module: user, action: edit }
+  
+a_media_item_set:
+  url: /set_item/:table/:id
+  param: { module: aMedia, action: setMediaItem }
+  class: aRoute
+
+site_navigation:
+  url: /admin/site_navigation
+  param: { module: site, action: phlocalNav }  
+  
+site_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Site
+    module:               siteAdmin
+    prefix_path:          /siteAdmin
+    column:               id
+    with_wildcard_routes: true
+  
+#################
+# aBlog routes #
+#################
+
+a_blog_post:
+  url:     /:year/:month/:day/:slug
+  param:   { module: aBlog, action: show }
+  options: { model: aBlogPost, type: object }
+  requirements: { year: '\d{4}', month: '\d|\d{2}', day: '\d|\d{2}' }
+  class:   aDoctrineRoute
+
+a_blog_search:
+  url: /search
+  param: { module: aBlog, action: search }
+  class: aRoute
+
+# Tags no longer go in the pretty path because they are not
+# restricted on punctuation. Categories now have a clear prefix
+# so the blog can be the home page
+
+# Please do not put the tag back in the URL
+a_blog_cat_tag_year_month_day:
+  url:   /category/:cat/:year/:month/:day
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}', day: '\d|\d{2}' }
+  class: aRoute
+
+# Please do not put the tag back in the URL
+a_blog_cat_tag_year_month:
+  url:   /category/:cat/:year/:month
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}' }
+  class: aRoute
+
+# Please do not put the tag back in the URL
+a_blog_cat_tag_year:
+  url:   /category/:cat/:year
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}' }
+  class: aRoute
+
+# Please do not put the tag back in the URL
+a_blog_tag_year_month_day:
+  url:   /:year/:month/:day
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}', day: '\d|\d{2}' }
+  class: aRoute
+
+# Please do not put the tag back in the URL
+a_blog_tag_year_month:
+  url:   /:year/:month
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}' }
+  class: aRoute
+
+# Please do not put the tag back in the URL
+a_blog_tag_year:
+  url:   /:year
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}' }
+  class: aRoute
+
+a_blog_cat_year_month_day:
+  url:   /category/:cat/:year/:month/:day
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}', day: '\d|\d{2}' }
+  class: aRoute
+
+a_blog_cat_year_month:
+  url:   /category/:cat/:year/:month
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}' }
+  class: aRoute
+
+a_blog_cat_year:
+  url:   /category/:cat/:year
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}' }
+  class: aRoute
+
+a_blog_year_month_day:
+  url:   /:year/:month/:day
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}', day: '\d|\d{2}' }
+  class: aRoute
+
+a_blog_year_month:
+  url:   /:year/:month
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}', month: '\d|\d{2}' }
+  class: aRoute
+
+a_blog_year:
+  url:   /:year
+  options:
+    filters: [ filterByYMD ]
+  param: { module: aBlog, action: index }
+  requirements: { year: '\d{4}' }
+  class: aRoute
+
+# Please do not put the tag back in the URL
+a_blog_cat_tag:
+  url:   /category/:cat
+  param: { module: aBlog, action: index }
+  class: aRoute
+
+# Please do not put the tag back in the URL
+a_blog_tag:
+  url:   /
+  param: { module: aBlog, action: index }
+  class: aRoute
+
+a_blog_cat:
+  url:   /category/:cat
+  param: { module: aBlog, action: index }
+  class: aRoute
+
+a_blog:
+  url: /
+  param: { module: aBlog, action: index }
+  class: aRoute
+
+a_blog_today:
+  url:
+  param: { module: aBlog, action: today }
+  class: aRoute
+
+a_blog_search_redirect:
+  url: /aBlog/:id
+  param: { module: aBlogAdmin, action: redirect }
+  options: { model: aBlogPost, type: object }
+  class: sfDoctrineRoute
+
+################
+# blog admin routes #
+################
+
+a_blog_admin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               aBlogPost
+    module:              aBlogAdmin
+    prefix_path:         admin/blog
+    column:              slug
+    with_wildcard_routes: true
+    with_show:            false
+    collection_actions:
+      categories: get
+      new_with_title: post
+      search: get
+
+a_blog_admin_autocomplete:
+  url:   /admin/blog/autocomplete
+  param: { module: aBlogAdmin, action: autocomplete }
+  class: sfRoute
+
+a_blog_admin_edit:
+  url:  /admin/blog/:id/edit/:slug
+  options: { model: aBlogPost, type: object, method: findOne }
+  param: { module: aBlogAdmin, action: edit }
+  class: sfDoctrineRoute
+  requirements:
+    sf_method: GET
+    id: \d+
+
+# We still want slug here because we sometimes allow this to be a full page refresh
+a_blog_admin_update:
+  url: /admin/blog/:id/update/:slug
+  options: { model: aBlogPost, type: object, method: findOne }
+  param: { module: aBlogAdmin, action: update }
+  class: sfDoctrineRoute
+  requirements:
+    sf_method: [GET, POST]
+    id: \d+
+
+# No slugs here, they make it tougher to edit slugs
+a_blog_admin_updateTitle:
+  url: /admin/blog/:id/updateTitle
+  options: { model: aBlogPost, type: object, method: findOne }
+  param: { module: aBlogAdmin, action: updateTitle }
+  class: sfDoctrineRoute
+  requirements:
+    sf_method: [GET, POST]
+    id: \d+
+
+# No slugs here, they make it tougher to edit slugs
+a_blog_admin_updateSlug:
+  url: /admin/blog/:id/updateSlug
+  options: { model: aBlogPost, type: object, method: findOne }
+  param: { module: aBlogAdmin, action: updateSlug }
+  class: sfDoctrineRoute
+  requirements:
+    sf_method: [GET, POST]
+    id: \d+
+
+a_blog_admin_delete:
+  url: /admin/blog/:id/delete/:slug
+  options: { model: aBlogPost, type: object, method: findOne }
+  param: { module: aBlogAdmin, action: delete }
+  class: sfDoctrineRoute
+  requirements:
+    sf_method: delete
+    id: \d+
+
+a_blog_admin_removeFilter:
+  url:   /admin/blog/remove_filter
+  param: { module: aBlogAdmin, action: removeFilter }
+  class: sfRoute
+
+a_blog_admin_addFilter:
+  url:   /admin/blog/add_filter
+  param: { module: aBlogAdmin, action: addFilter }
+  class: sfRoute
+  
+embed_css:
+  url: /uploads/asset-cache/embed.css
+  param: { module: default, action: compileEmbedCss }
+  class: sfRoute
+
+default:
+  url:   /:module/:action/*
+  
+a_page:
+  url:   /:slug
+  param: { module: a, action: show }
+  requirements: { slug: .* }

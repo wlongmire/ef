@@ -1,0 +1,9 @@
+#################
+# aBlog routes #
+#################
+
+wf_live_search:
+  url:     /wf_live_search/:model
+  param:   { module: jquery, action: liveSearch }
+  options: { extra_parameters_as_query_string: true }
+  class:   sfRequestRoute

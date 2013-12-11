@@ -1,0 +1,98 @@
+prod:
+  logger:
+    class: sfAggregateLogger
+    param:
+      level: notice
+      loggers:
+        sf_file_debug:
+          param:
+            level: notice
+        sf_web_debug:
+          class: sfNoLogger
+
+dev:
+  mailer:
+    param:
+      delivery_strategy: single_address
+      delivery_address: #fill
+
+cli:
+  routing:
+    param:
+      logging: false
+# ARE THESE NECESSARY?
+#  controller:
+#    class: sfConsoleController
+#  request:
+#    class: sfConsoleRequest
+#  response:
+#    class: sfConsoleResponse
+
+test:
+  response:
+    param:
+      send_http_headers: false
+
+  storage:
+    class: sfSessionTestStorage
+    param:
+      session_path:  "%SF_TEST_CACHE_DIR%/sessions"
+
+  mailer:
+    param:
+      delivery_strategy: none
+
+
+all:
+  controller:
+    class: wfFrontWebController
+
+  request:
+    class: wfWebRequest
+
+  response:
+    class: wfWebResponse
+
+  storage:
+    class: sfPDOSessionStorage
+    param:
+      session_name: #fill
+      db_table: session
+      database: doctrine
+
+  routing:
+    class: wfPatternRouting
+    param:
+      load_configuration:               true
+      suffix:                           ''
+      default_module:                   default
+      default_action:                   index
+      debug:                            %SF_DEBUG%
+      logging:                          %SF_LOGGING_ENABLED%
+      generate_shortest_url:            true
+      extra_parameters_as_query_string: false
+      cache:                            ~
+
+
+  logger:
+    param:
+      loggers:
+        sf_file_debug:
+          class: wfFileLogger
+        sf_web_debug:
+          param:
+            xdebug_logging:  true
+
+  mailer:
+    class: wfMailer
+    param:
+      delivery_strategy: spool
+      spool_class:       Swift_DoctrineSpool
+      spool_arguments:   [ MailMessage, message ]
+      transport:
+        param:
+          host:       smtp.gmail.com
+          port:       465
+          encryption: ssl
+          username:   #fill
+          password:   #fill

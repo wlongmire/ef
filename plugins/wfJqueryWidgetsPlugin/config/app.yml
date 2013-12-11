@@ -1,0 +1,4 @@
+all:
+  form_generator:
+    form_generator_class: wfDoctrineFormGeneratorJquery
+

@@ -1,0 +1,60 @@
+@import '../global';
+
+.a-admin
+{
+  .treeTable tr td .expander {
+    background-position: left center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    padding: 0;
+    zoom: 1; /* IE7 Hack */
+  }
+
+  .treeTable tr.collapsed td .expander {
+    background-image: url(/images/vendor/treeTable/toggle-expand-dark.png);
+  }
+
+  .treeTable tr.expanded td .expander {
+    background-image: url(/images/vendor/treeTable/toggle-collapse-dark.png);
+  }
+  
+  .treeTable .tree-column .tree-icon {
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding: .2em 0 .2em 1.5em;
+    cursor: move;
+  }
+  
+  .treeTable .tree-column span.file {
+    background-image: url(/images/vendor/treeTable/page_white_text.png);
+  }
+
+  .treeTable .tree-column span.folder {
+    background-image: url(/images/vendor/treeTable/folder.png);
+  }
+
+  .treeTable tr.selected, .treeTable tr.accept {
+    background-color: #e0e0e0;
+  }
+
+  .treeTable tr.collapsed.selected td .expander, .treeTable tr.collapsed.accept td .expander {
+    background-image: url(/images/vendor/treeTable/toggle-expand-light.png);
+  }
+
+  .treeTable tr.expanded.selected td .expander, .treeTable tr.expanded.accept td .expander {
+    background-image: url(/images/vendor/treeTable/toggle-collapse-light.png);
+  }
+
+  .treeTable .ui-draggable-dragging {
+    color: #000;
+    z-index: 1;
+  }
+  
+  .treeTable td.tree-column {
+    padding-left: 20px;
+  }
+  .treeTable td.actions
+  {
+    width: 180px;
+  }
+}

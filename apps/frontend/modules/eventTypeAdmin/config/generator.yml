@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           EventType
+    theme:                 treeAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          event_type_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        actions:
+          _new: { label: New Event Type }
+        batch_actions: { }
+        display: [name, is_daily]
+        max_per_page: 999999        
+        object_actions:
+          newChild:
+            label: Add Child
+          _edit:
+            label: Edit
+          _delete:
+            label: Delete
+        sort: [name, asc]            
+        title: Event Type Admin
+        tree_column: name
+      filter:
+        class: false
+      form:    ~
+      edit:
+        title: Edit Event Type
+      new:
+        title: New Event Type

@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TagHeading
+    theme:                 aAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tag_heading_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        blurb:
+          is_real: false
+      list:
+        display: [=name]
+        title: Tag Heading Admin
+        sort: [name, asc]
+      filter: false
+      form:    ~
+      edit: 
+        title: Edit Tag Heading
+      new:
+        title: New Tag Heading
+        actions:
+          _save: 
+          _list: 

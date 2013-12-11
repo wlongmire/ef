@@ -1,0 +1,12 @@
+<h4 class="profile_name">{{name}}</h4>
+
+{{#if original_picture_url}}
+	<img class="profile_image" alt="{{name}}" src="{{getImageUrl this}}">
+{{/if}}
+
+{{#if disciplines}}
+	<p class="profile_disciplines">{{getDisciplines this}}</p>
+{{/if}}
+
+<p class="profile_blurb">{{{addExternalLink blurb}}}</p>
+<div class="clearfix"></div>

@@ -1,0 +1,28 @@
+# /cache/
+/cache/*
+
+# /config/
+/config/databases.yml
+
+# /data/
+/data/a_writable/*
+/data/generator/sfDoctrineModule/aAdmin/skeleton/templates/.sf
+/data/generator/sfDoctrineModule/aBlogAdmin/skeleton/templates/.sf
+/data/lock/*
+/data/snapshots/*
+/data/sql/*
+
+# /log/
+/log/*.log
+/log/apache/*.log
+
+# /plugins/
+/plugins/.registry
+
+# /web/
+/web/.htaccess
+/web/.htaccess.bak
+/web/uploads/asset-cache/*
+/web/uploads/media_items/*
+/web/uploads/uploaded_image_preview/*
+/web/uploads/*/*

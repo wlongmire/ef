@@ -1,0 +1,14 @@
+form.standard .wf-error-message
+{
+  background: transparent url(/wfJqueryWidgets/images/error_arrow.gif) no-repeat scroll left center;
+  padding-left: 7px;
+}
+form.standard .wf-error-message .error
+{
+  background: #fbe3e4;
+  border-color: #924949;
+  color: #8a1f11;
+  border-style: solid solid solid none;
+  border-width: 2px;
+  padding: 5px;
+}

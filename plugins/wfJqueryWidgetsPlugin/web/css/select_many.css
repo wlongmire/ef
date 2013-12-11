@@ -1,0 +1,96 @@
+.wf-select-many
+{
+  font-size: 12px;
+  line-height: 20px;
+}
+.wf-select-many input.autocomplete
+{
+  min-width: 200px;
+}
+.wf-select-many .current-list .item
+{
+  padding: 2px;
+  position: relative;
+}
+.wf-select-many .current-list .item.ui-draggable
+{
+  border: 1px dashed transparent;
+}
+.wf-select-many .current-list .item.ui-draggable:hover,
+  .wf-select-many .current-list .item.ui-draggable.clone
+{
+  cursor: move;
+}
+.wf-select-many .current-list .empty
+{
+  line-height: 24px;
+}
+.wf-select-many .current-list .ui-icon-wrapper
+{
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+.wf-select-many .current-list .ui-icon
+{
+  cursor: pointer;
+}
+
+.wf-select-many .droppable-help
+{
+  display: none;
+}
+.wf-select-many.drop-hover .droppable-help
+{
+  display: block;
+  margin-top: 5px;
+  font-size: 1.2em;
+  text-align: center;
+}
+.wf-select-many.drop-hover .current-list
+{
+  display: none;
+}
+
+.wf-select-many.rich .ui-widget-header
+{
+  padding: 2px 5px;
+}
+.wf-select-many.rich .ui-widget-content
+{
+  padding: 5px;
+}
+.wf-select-many.rich .autocomplete-wrapper
+{
+  float: left;
+  margin-right: 20px;
+}
+.wf-select-many.rich .current
+{
+  float: left;
+  min-width: 240px;
+}
+
+.wf-select-many.plain .ui-widget-header
+{
+  border: 0 none;
+  background: transparent;
+}
+.wf-select-many.plain .ui-widget-content
+{
+  border: 0 none;
+  background: transparent;
+}
+
+.ui-autocomplete .ui-menu-item .item-children
+{
+  padding-left: 5px;
+  color: #999;
+  border-left: 1px dotted #aaa;
+  font-size: 11px;
+}
+.ui-autocomplete .ui-menu-item .ui-state-hover .item-children
+{
+  color: #f0f0f0;
+  border-color: #d8d8d8;
+}

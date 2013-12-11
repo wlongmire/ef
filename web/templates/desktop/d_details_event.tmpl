@@ -1,0 +1,30 @@
+<h4 class="event_name">{{name}}</h4>
+<p class="event_cost">{{getCost this}}</p>
+<p class="event_type">{{event_type.name}}</p>
+
+<ul class="event_occurences">
+{{#showOccurences occurences}}
+	
+{{/showOccurences}}
+</ul>
+
+
+{{#if original_picture_url}}
+	<img class="event_image" alt="{{name}}" src="{{getImageUrl this}}">
+{{/if}}
+
+<p class="event_blurb">{{{addExternalLink blurb}}}</p>
+
+{{#if venue}}
+	{{#with venue}}
+		<h4 class="event_venue_name">{{name}}</h4>
+		<h5 class="event_address_1">{{address_1}}</h5>
+		{{#if address_2}}
+		<h5 class="event_address_2">{{address_2}}</h5>
+		{{/if}}
+	{{/with}}
+{{/if}}
+
+<a class="event_link" href="{{url}}" target="_blank">Visit Website</a>
+
+<div class="clearfix"></div>

@@ -1,0 +1,41 @@
+all:
+  wf_date_format:
+    js: 'r'
+    db: 'Y-m-d'
+    day_text_short: "M d, Y"
+    day_text_short_weekday: "l, M d, Y"
+    day_text_long: "F d, Y"
+    formal: 'l, F jS'
+    time: "g:i a"
+    numeric: "m/d/Y"
+    numeric_short: 'm/d/y'
+    week: "\W\e\e\k \o\f m/d/Y"
+    month: "F Y"
+    month_short: "M Y"
+    month_shorter: "M 'y"
+    regimen_day: '\M\o\n\t\h n, \D\a\y j'
+    comment: "M d Y \a\t g:i a"
+    timestamp: 'Y-m-d H:i:s'
+    ical: 'Ymd\THis'
+  form_generator:
+    form_theme: 'wf'
+    form_generator_class: wfDoctrineFormGenerator
+    filter_theme: 'wf'
+    filter_generator_class: wfDoctrineFormFilterGenerator
+    long_string_threshold: 150 #the length at which we construct a "long string" widget/validator vs. a "short string" widget/validator
+    enum_expanded_threshold: 5 #the number of items a choice widget must have to be rendered as "expanded"
+    # Add definitions here to return special widget types based on templates. In the definition below:
+    # Imageable = template name
+    # method = method to call on template to get the field name that should receive the special widget/validator
+    # type = the name of the special type to return
+    # to define the type of widget/validator to be used, add a definition for type to widgets/validators.yml as necessary
+    template_type_map:
+      Imageable: { method: getImageFieldName, type: image, template: removeFile }
+    # A map of schema definition keys to widget/validator types
+    # key = column definition key
+    # type = widget/validator type to be defined in widget/validator .yml as necessary
+    definition_key_map:
+      email: email
+      country: country
+      usstate: usstate
+      url: url

@@ -1,0 +1,148 @@
+// Mixins
+// -------------------------------------------
+
+@a-asset-path: "";
+
+@clearfix // Clear Fix - Borrowed from HTML5 Boilerplate -- http://html5boilerplate.com
+{
+	zoom: 1;
+	&:after,
+	&:before
+	{
+	  content: "\0020";
+		display: block;
+		height: 0;
+		visibility: hidden;		
+	}
+	&:after
+	{
+		clear: both;
+	}
+}
+
+@a-transition (@time:0.15s; @ease:ease)
+{
+	-webkit-transition: all @time @ease;
+	-moz-transition: all @time @ease;
+	-o-transition: all @time @ease;
+	transition: all @time @ease;
+}
+
+@a-border-radius(@radius:5px)
+{
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+@a-box-shadow(@shadow:rgba(0,0,0,0.15) 0px 0px 10px)
+{
+	-moz-box-shadow:@shadow;
+	-webkit-box-shadow:@shadow;
+	-opera-box-shadow:@shadow;
+	-khtml-box-shadow:@shadow;
+	box-shadow:@shadow;
+}
+
+@a-box-bevel(@backgroundColor: #f00; @corner_tl:25px; @corner_br:25px; @corner_tr:25px; @corner_bl:25px;)
+{
+	background:
+	-moz-linear-gradient(45deg,  transparent @corner_tl, @backgroundColor @corner),
+	-moz-linear-gradient(135deg, transparent @corner_br, @backgroundColor @corner),
+	-moz-linear-gradient(225deg, transparent @corner_tr, @backgroundColor @corner),
+	-moz-linear-gradient(315deg, transparent @corner_bl, @backgroundColor @corner);
+	background:
+	-o-linear-gradient(45deg,  transparent @corner_tl, @backgroundColor @corner),
+	-o-linear-gradient(135deg, transparent @corner_br, @backgroundColor @corner),
+	-o-linear-gradient(225deg, transparent @corner_tr, @backgroundColor @corner),
+	-o-linear-gradient(315deg, transparent @corner_bl, @backgroundColor @corner);
+	background:
+	-webkit-linear-gradient(45deg,  transparent @corner_tl, @backgroundColor @corner),
+	-webkit-linear-gradient(135deg, transparent @corner_br, @backgroundColor @corner),
+	-webkit-linear-gradient(225deg, transparent @corner_tr, @backgroundColor @corner),
+	-webkit-linear-gradient(315deg, transparent @corner_bl, @backgroundColor @corner);
+	background-position: bottom left, bottom right, top right, top left;
+	-moz-background-size: 51% 51%;
+	-webkit-background-size: 51% 51%;
+	background-size: 51% 51%;
+	background-repeat: no-repeat;				
+}
+
+@a-gradient(@color:@color)
+{
+	background-image: -moz-linear-gradient(center bottom, @color 0%, lighten(@color, 20%) 70%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @color), color-stop(.7, lighten(@color, 10%)));
+	background-image: -o-linear-gradient(center bottom, @color 0%, lighten(@color, 20%) 70%);
+}
+
+@a-text-shadow(@params:0 -1px 0px rgba(0,0,0,0.20);)
+{
+	text-shadow: @params;
+}
+
+@a-no-user-select
+{
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+@a-after-shadow
+{
+	&::after
+	{
+		visibility: visible;
+		float: left;
+		content: ' ';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: auto;
+		z-index: -1;
+		height: 15px;
+		margin: 0 5%;
+		width: 90%;
+		@a-box-shadow(0 0 15px rgba(0,0,0,0.25));
+		-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+		-moz-border-radius-bottomleft: 200px 10px;
+		-moz-border-radius-bottomright: 200px 10px;
+		-webkit-border-bottom-left-radius: 200px 10px;
+		-webkit-border-bottom-right-radius: 200px 10px;
+		border-bottom-left-radius: 200px 15px;
+		border-bottom-right-radius: 200px 15px;
+	}		
+}
+
+@a-before-shadow
+{
+	&::before
+	{
+		visibility: visible;
+		float: left;
+		content: ' ';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: auto;
+		z-index: -1;
+		height: 15px;
+		margin: 0 5%;
+		width: 90%;
+		@a-box-shadow(0 0 15px rgba(0,0,0,0.25));
+		-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+		-moz-border-radius-topleft: 200px 10px;
+		-moz-border-radius-topright: 200px 10px;
+		-webkit-border-top-left-radius: 200px 10px;
+		-webkit-border-top-right-radius: 200px 10px;
+		border-top-left-radius: 200px 15px;
+		border-top-right-radius: 200px 15px;
+	}		
+}
+
+@a-rgba-background( @rgb:#fff; @rgba:rgba(255,255,255,0.95); )
+{
+	background: @rgb;
+	background: @rgba;
+}

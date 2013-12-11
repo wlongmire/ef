@@ -1,0 +1,71 @@
+@width
+{
+  @page: 970px;
+  @filter: 245px;
+}
+
+@success: #326806;
+@success_bg: hsl(hue(@success), 55%, 95%);
+@money: #265804;
+
+@border_radius_native(@radius: @default_border_radius)
+{
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+@border_radius(@radius)
+{
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+/*  @border_radius_native(@radius);*/
+/*  behavior: url(/css/behavior/PIE.htc);*/
+}
+
+@default_box_shadow_border: 3px 3px 0;
+@default_box_shadow_opacity: .2;
+@default_box_shadow_color: #000;
+@box_shadow_native(@bs-border: @default_box_shadow_border; @bs-opacity: @default_box_shadow_opacity; @bs-color: @default_box_shadow_color)
+{
+  @rgba: @bs-color + rgba(0, 0, 0, @bs-opacity);
+  box-shadow: @bs-border @rgba;
+  -moz-box-shadow: @bs-border @rgba;
+  -webkit-box-shadow: @bs-border @rgba;
+}
+@box_shadow(@bs-border: @default_box_shadow_border; @bs-opacity: @default_box_shadow_opacity; @bs-color: @default_box_shadow_color)
+{
+  @rgba: @bs-color + rgba(0, 0, 0, @bs-opacity);
+  box-shadow: @bs-border @rgba;
+  -moz-box-shadow: @bs-border @rgba;
+  -webkit-box-shadow: @bs-border @rgba;
+/*  @box_shadow_native(@bs-border; @bs-opacity; @bs-color);*/
+  behavior: url(/css/behavior/PIE.htc);
+}
+
+@linear_gradient_native(@from; @to)
+{
+  background: -webkit-gradient(linear, center top, center bottom, from(@from), to(@to));
+  background: -moz-linear-gradient(90deg, @from, @to);
+  background: linear-gradient(@from, @to);
+}
+@linear_gradient(@from; @to)
+{
+/*  @linear_gradient_native(@from; @to);*/
+  background: -webkit-gradient(linear, center top, center bottom, from(@from), to(@to));
+  background: -moz-linear-gradient(90deg, @from, @to);
+  background: linear-gradient(@from, @to);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=@from, endColorstr=@to);
+/*  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr={@from}, endColorstr={@to})";*/
+}
+
+$rich_text
+{
+  strong, b { font-weight: bold; }
+  em, i { font-style: italic; }
+  ul, ol { margin: 0 0 10px 24px; }
+  ul > li { list-style: disc inside; }
+  ol > li { list-style: decimal inside; }
+  p { margin: 0 0 10px 0; }
+  pre { background: #fafafa; color: #555; padding: 5px; overflow: auto; height: auto; font-family:Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace; }
+}

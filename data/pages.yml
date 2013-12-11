@@ -1,0 +1,66 @@
+aPage:
+  home:
+    slug: "/"
+    template: home
+    children:
+      about:
+        slug: "/about"
+        template: page
+        Areas:
+          home_en_title:
+            name: title
+            culture: en
+            latest_version: 1
+            AreaVersions:
+              home_en_title_version_1:
+                version: 1
+                AreaVersionSlots:
+                  home_en_title_version_1_permid_1:
+                    permid: 1
+                    Slot:
+                      type: aText 
+                      value: "About EventsFilter"
+      admin:
+        # By convention this page is the parent of all admin pages. Admin pages are
+        # hidden from all normal navigation
+        slug: "/admin"
+        template: default
+        admin: true
+        # The admin engine has an index action that redirects to the home page, for now
+        engine: aAdmin
+        Areas:
+          admin_en_title:
+            name: title
+            culture: en
+            latest_version: 1
+            AreaVersions:
+              admin_en_title_version_1:
+                version: 1
+                AreaVersionSlots:
+                  admin_en_title_version_1_permid_1:
+                    permid: 1
+                    Slot:
+                      type: aText 
+                      value: "Admin"   
+        children:
+          media:
+            slug: "/admin/media"
+            template: default
+            engine: aMedia
+            # The default media engine page is not visible to logged-out users. You can
+            # introduce other instances of it that are
+            admin: true
+            Areas:
+              media_en_title:
+                name: title
+                culture: en
+                latest_version: 1
+                AreaVersions:
+                  media_en_title_version_1:
+                    version: 1
+                    AreaVersionSlots:
+                      media_en_title_version_1_permid_1:
+                        permid: 1
+                        Slot:
+                          type: aText 
+                          value: "Media"

@@ -1,0 +1,10 @@
+all:
+  fs_overseer_plugin:
+    production_safety_check: true   # Require an explicit flag before loading to the production database
+
+                                    # !!! SET THESE if you want to use production_safety_check and fsOverseerTools functions !!!
+    production_hostname: ~          # The production server's hostname
+    production_dir: ~               # The root directory of the project on the production server
+
+    syncable_dirs: ~                # Directories which should be synced via fs:sync
+    lock_dir: ~                     # Directory where lock files are placed

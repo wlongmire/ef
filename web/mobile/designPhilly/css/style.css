@@ -1,0 +1,126 @@
+body {
+}
+
+/*header*/
+.ui-header {
+	filter:none;
+	background:white;
+}
+
+.header {
+	height:80px;
+}
+
+.logo_link {
+	float:left;
+	display:inline-block;
+	width:60px;
+	height:45px;
+}
+
+.logo {
+	width:60px;
+	height:45px;
+	margin: 10px;
+}
+
+.home_button, .back, .map{
+	position:relative !important;
+	float:right;
+
+	display:inline-block;
+	width:45px;
+	height:45px;
+	
+	margin:5px 10px 0 0;
+	
+	background-color:red;
+	border: 5px solid #EE0000;
+	color:white;
+
+	text-decoration: none;
+	text-shadow: 0px 0px;
+	font-family: 'Cabin', sans-serif;
+
+	text-align: center;
+	font-size:10pt;
+	line-height:30pt;
+
+}
+
+.back {
+	margin:10px 20px 4px 0;
+}
+
+.map {
+	float: left;
+	margin:4px -10px 4px 4px;
+}
+/*general ui*/
+.ui-li {
+	filter:none;
+	background:red;
+}
+
+.ui-btn-text, .ui-li-divider {
+	font-family: 'Cabin', sans-serif;
+	text-shadow: 0px 0px;
+	line-height: 39px;
+}
+
+.ui-link-inherit, .ui-li-divider {
+	color:white !important;
+	font-size:18pt;
+}
+
+/*event list*/
+.ui-li-divider {
+	font-size:15pt;
+	background-color:white;
+	color:#777 !important;
+	padding:2px 5px;
+	letter-spacing: 1px;
+}
+
+
+.event {
+	line-height: normal;
+	padding:15px !important;
+	margin:0px !important;
+}
+
+.event_name {
+	font-size:15pt;
+	line-height: normal;
+	padding: 0px !important;
+	margin:0px !important;
+}
+
+.venue_name, .time_text {
+	font-size:8pt;
+	color:black;
+	line-height: normal;
+	padding: 0px !important;
+	margin:0px !important;	
+}
+
+/*details */
+.time_text {
+	font-size:10pt;
+}
+
+.event_image {
+	padding-top: 15px;
+}
+
+.event_venue_name {
+	font-weight: bold;
+	padding:12px 0 0 0;
+	margin:0;
+	line-height:0pt;
+}
+
+.event_address_1, .event_address_2 {
+	font-weight: bold;
+	font-size: 10pt;
+}

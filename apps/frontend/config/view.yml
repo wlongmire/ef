@@ -1,0 +1,37 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        symfony project
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:
+    - main.less: { data-asset-group: global }
+    - page/filter.less: { data-asset-group: global }
+    - page/detail.less: { data-asset-group: global }
+    - apostrophe/my-a-forms.less: { position: last, data-asset-group: global }
+    - apostrophe/my-a-admin.less: { position: last, data-asset-group: global }
+    - apostrophe/my-a-buttons.less: { position: last, data-asset-group: global }
+    - apostrophe/my-area-slots.less: { position: last, data-asset-group: global }
+
+  javascripts:
+    - plugin/jquery.treeview.js: { data-asset-group: global }    
+    - /wfJqueryWidgets/js/base.js: { data-asset-group: global }
+    - /wfJqueryWidgets/js/vendor/jquery.tmpl.js: { data-asset-group: global }
+    - /wfJqueryWidgets/js/date.js: { data-asset-group: global }
+    - site.js: { data-asset-group: global }    
+    - page/filter.js: { data-asset-group: global }
+    - /wfJqueryWidgets/js/autocomplete.js: { data-asset-group: global }
+    - /wfJqueryWidgets/js/select_many.js: { data-asset-group: global }
+    - /apostrophePlugin/js/timepicker.js: { data-asset-group: global }
+    - /apostropheBlogPlugin/js/aBlog.js: { data-asset-group: global }
+
+  has_layout:     true
+  layout:         layout

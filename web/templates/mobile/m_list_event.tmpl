@@ -1,0 +1,18 @@
+	{{#each dateGroup}}
+		<li data-role="list-divider" role="heading" id="date_heading">{{formatDate this}}</li>
+
+	{{#each entry}}
+	<li data-theme="c" data-icon="arrow-r">
+		<a href="http://www.eventsfilter.com/api/event/show/{{id}}" data-id="{{id}}" data-type="event" class="event detail">
+			<p class="event_name">{{name}}</p>
+			
+			{{#if Venue}} 
+			<p class="venue_name">{{Venue.name}}</p>
+			{{/if}}
+
+			<p class="time_text">{{getTime this}}</p>
+		</a>
+	</li>
+	{{/each}}
+
+	{{/each}}

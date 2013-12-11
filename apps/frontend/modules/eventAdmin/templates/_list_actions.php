@@ -1,0 +1,1 @@
+<?php echo $helper->linkToNew(array(  'label' => 'New Event',  'params' =>   array(  ),  'class_suffix' => 'new',)) ?>

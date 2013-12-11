@@ -1,0 +1,86 @@
+@import '../global';
+
+.a-admin
+{
+  #a-admin-filters-container #a-admin-filters-form .a-form-row .a-admin-filter-field { display: block; }
+  &.disciplineAdmin .a-content,
+  &.locationAdmin .a-content,
+  &.venueAdmin .a-content,
+  &.userAdmin .a-content,
+  &.eventAdmin .a-content,
+  &.eventTypeAdmin .a-content,
+  &.categoryAdmin .a-content,
+  &.profileAdmin .a-content,
+  &.tagAdmin .a-content,
+  &.tagHeadingAdmin .a-content
+  {
+    width: 100%;
+  }
+  .a-admin-content
+  {
+    width: 100%;
+  }  
+  .a-admin-flashes
+  {
+    padding-bottom: 0;
+    border-bottom: 0 none;
+  }  
+  .a-admin-flashes.notice
+  {/* We should make two styles for .a-admin-flashes.error and .a-admin-flashes.notice */
+    color: #EF9920;
+    background: transparent url(/apostrophePlugin/images/a-icon-error.png) no-repeat scroll left top;
+  }
+  .a-admin-flashes.success
+  {
+    color: @success;
+    background: transparent url(/apostrophePlugin/images/ok.png) no-repeat scroll left top;  
+  }
+  &.a-admin-generator .a-form-row input
+  {
+    min-width: 1px;
+  }
+  
+  .a-admin-bar .return-link
+  {
+    clear: both;
+    font-size: 0.85em;
+  }
+  .admin-control
+  {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #aaa;
+    background: #e8e8e8;
+  }
+  .admin-control.hidden
+  {
+    display: none;
+  }
+}
+
+.a-media
+{
+  .a-subnav-wrapper.media
+  {
+    .a-subnav-section.tags
+    {
+      display: none;
+    }
+    .a-subnav-section.types
+    {
+      display: none;
+    }
+    hr
+    {
+      display: none;
+    }
+  }
+  .a-form-row.tags
+  {
+    display: none !important;
+  }
+  .a-form-row.categories
+  {
+    display: none !important;
+  }
+}

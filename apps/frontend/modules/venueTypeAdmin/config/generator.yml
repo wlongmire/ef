@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           VenueType
+    theme:                 aAdmin    
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          venue_type_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        actions:
+          _new: { label: New Venue Type }
+        batch_actions: { }
+        display: [name]
+        max_per_page: 999999        
+        object_actions:
+          _edit:
+            label: Edit
+          _delete:
+            label: Delete
+        sort: [name, asc]            
+        title: Venue Type Admin
+      filter:
+        class: false
+      form:    ~
+      edit:
+        title: Edit Venue Type
+      new:
+        title: New Venue Type

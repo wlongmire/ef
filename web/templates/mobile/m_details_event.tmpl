@@ -1,0 +1,43 @@
+<h4 class="event_name">{{name}}</h4>
+<p class="time_text">{{getTime this}}</p>
+<p class="time_text">
+{{getCost this}}
+{{#if ticket_url}}
+	<a data-role="none" href="{{ticket_url}}"> Get Tickets</a>
+{{/if}}
+
+</p>
+
+
+{{#if original_picture_url}}
+	<img class="event_image" alt="{{name}}" src="{{getImageUrl this}}">
+{{/if}}
+
+<div class="event_blurb">
+	{{{addExternalLink blurb}}}
+</div>
+
+{{#if venue}}
+	{{#with venue}}
+		<p class="event_venue_name">{{name}}</p>
+
+		{{#ifNotEqual this 'name' 'Various locations in Philadelphia'}}
+
+		<p class="event_address_1">{{address_1}}</p>
+		{{#if address_2}}
+		<p class="event_address_2">{{address_2}}</p>
+		{{/if}}
+
+		{{/ifNotEqual}}
+
+	{{/with}}
+{{/if}}
+
+
+<a data-role="none" data-rel="back" class="back" href="#">Close</a>
+
+{{#ifNotEqual venue 'name' 'Various locations in Philadelphia'}}
+
+<a data-role="none" data-theme="a" class="map" href="{{getAddressLink this}}">Map</a>
+
+{{/ifNotEqual}}

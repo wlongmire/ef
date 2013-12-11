@@ -1,0 +1,24 @@
+<h4 class="venue_name">{{name}}</h4>
+<p class="venue_address_1">{{address_1}}</p>
+
+{{#if address_2}}
+	<p class="venue_address_2">{{address_2}}</p>
+{{/if}}
+
+{{#if location}}
+	<h5 class="venue_location">{{location.name}}</h5>
+{{/if}}
+
+{{#if city}}
+<p class="venue_city_state">{{city}}, {{state}}</p>
+{{/if}}
+
+{{#if blurb}}
+	<p class="venue_blurb">{{{addExternalLink blurb}}}</p>
+{{/if}}
+
+{{#if url}}
+	<a class="venue_link" alt='{{name}}'  target="_blank" href="{{url}}"> Website</a>
+{{/if}}
+
+<div class="clearfix"></div>

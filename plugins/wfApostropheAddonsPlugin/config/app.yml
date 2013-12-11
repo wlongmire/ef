@@ -1,0 +1,3 @@
+all:
+  wf:
+    feedback_form_class: wfApostropheFeedbackForm

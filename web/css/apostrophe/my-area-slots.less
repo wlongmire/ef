@@ -1,0 +1,43 @@
+@import "../global";
+
+.a-area.a-normal
+{
+  .a-slot.a-normal
+  {
+    margin-bottom: 15px;
+    &.aButton.a-new-slot
+    {
+      margin-bottom: 0; /*hack fix for empty buttons on top of filter area*/
+    }
+  }
+}
+.a-area-details-ads-header
+{
+  > .a-controls
+  {
+    position: absolute !important;
+  }
+  &.a-normal .a-controls
+  {
+    display: none !important;
+  }
+  &:hover .a-controls
+  {
+    display: block !important;
+  }
+  .a-slot.a-normal
+  {
+    margin-bottom: 0 !important;
+  }
+  .a-slot-content
+  {
+    text-align: center;
+    font-size: 0.9em;
+    p { margin-bottom: 0; }
+  }
+}
+
+.copy
+{
+  $rich_text;
+}

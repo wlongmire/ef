@@ -1,0 +1,43 @@
+#the widget classes to use for generator form column types
+classes:
+  default: 'sfWidgetFormInputText'
+  primary_key: 'sfWidgetFormInputHidden'
+  foreign_key: 'wfWidgetFormDoctrineChoice'
+  many_to_many: 'wfWidgetFormDoctrineChoice'
+  email: 'sfWidgetFormInputText'
+  country: 'sfWidgetFormSelectCountry'
+  usstate: 'sfWidgetFormSelectUsstate'
+  string_short: 'sfWidgetFormInputText'
+  string_long: 'sfWidgetFormTextarea'
+  blob: 'sfWidgetFormTextarea'
+  clob: 'sfWidgetFormTextarea'
+  boolean: 'sfWidgetFormInputCheckbox'
+  integer: 'sfWidgetFormInputText'
+  float: 'sfWidgetFormInputText'
+  decimal: 'sfWidgetFormInputText'
+  date: 'sfWidgetFormDate'
+  time: 'wfWidgetFormTime'
+  timestamp: 'sfWidgetFormDateTime'
+  url: 'sfWidgetFormInputText'
+  enum: 'sfWidgetFormChoice'
+  image: 'wfWidgetFormInputFileImageable'
+
+#any form column type here will not be passed the standard options for it's form option types
+#e.g., if primary_key were NOT specified below, it could receive standard integer options like max/min/range
+special_types:
+  primary_key: true
+  foreign_key: true
+  country: true
+  usstate: true
+  image: true
+
+autosize_settings:
+  email: { max_size: 25 }
+  string_short: { max_size: 40, default_size: 25 }
+  integer: { default_size: 6 }
+  float: { default_size: 6 }
+  decimal: { default_size: 6 }
+  url: { default_size: 40, max_size: 40 }
+
+filter_classes: # will override Symfony's defaults
+  image: 'sfWidgetFormInputHidden'

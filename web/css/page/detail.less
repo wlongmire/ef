@@ -1,0 +1,131 @@
+@import '../global';
+
+.return-breadcrumb
+{
+  font-size: 0.85em;
+  margin-bottom: 5px;
+}
+.details 
+{
+  .section
+  {
+    margin-bottom: 10px;
+    &.inset
+    {
+      background: darken(@colors_bg_component, 5%);
+      padding: 5px;
+      @border_radius(5px);
+    }
+  }
+  .media-description
+  {
+    font-size: 0.92em;
+    color: #666;
+    margin: 2px 0 5px;
+    padding: 0 5px;
+  }
+  .categories, .tags, .disciplines, .contact
+  {
+    font-size: 0.92em;
+    color: #666;
+    .plain.icon
+    {
+      float: left;
+      margin-top: -1px;
+      margin-right: 3px;
+    }
+  }
+  .map-cover
+  {
+    width: 225px;
+  }
+  .blurb
+  {
+    $rich_text;
+    &.full
+    {
+      display: none;
+    }
+  }
+  .filter-header
+  {
+    margin-bottom: 2px;
+    h4
+    {
+      float: left;
+    }
+    .a-controls
+    {
+      float: left;
+      clear: none;
+      margin: -2px 0 0 10px;
+    }
+  }
+  .info-list
+  {
+    list-style-type: none;
+    li
+    {
+      overflow: hidden;
+      clear: both;
+    }
+    .detail
+    {
+      float: left;
+      &.no-info
+      {
+        width: 100% !important;
+      }
+    }
+    .info
+    {
+      float: right;
+      font-size: 0.875em;
+      color: #888;
+      margin-top: 2px;
+    }    
+    &.details
+    {
+      .detail { width: 65%; }
+      .info { width: 33%; }
+      li { padding: 0 0 5px; }
+    }
+    .buy
+    {
+      float: right;
+      font-size: 0.875em;
+      margin-top: 1px;
+    }
+    &.dates
+    {
+      .detail { width: 52px; }
+      .info { width: 128px; } 
+      .buy { width: 40px; text-align: right;}
+    }
+    .separator
+    {
+      color: #888;
+    }
+  }
+  .website
+  {
+    text-align: center;
+    a
+    {
+      text-overflow: ellipsis;
+    }
+  }
+  &.event
+  {
+    .section > .cost-and-tickets
+    {
+      font-size: 1.125em;
+      text-align: left;
+      line-height: 1.0;
+      .cost, a
+      {
+        font-weight: bold;
+      }
+    }
+  }
+}

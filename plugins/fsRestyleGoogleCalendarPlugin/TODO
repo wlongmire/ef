@@ -1,0 +1,4 @@
+Make actions work with regular css, not just less.
+Generalize location of javascript and css. Should be able to come from plugin or web dir.
+Add more options for _calendar partial to pass to iframe (showtabs, showtimezone, etc).
+Add way of specifying callable to get js/css filenames.

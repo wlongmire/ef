@@ -1,0 +1,33 @@
+fsCronTask:
+  options:
+    symfony:
+      form : false
+      filter: false
+  actAs:
+    Timestampable:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      unique: true
+      notnull: true
+    command:
+      type: string(1000)
+      notnull: true
+    frequency:
+      type: string(100)
+    priority:
+      type: integer(2)
+      range: [0, 1000]
+      notnull: true
+      default: 500
+    enabled:
+      type: boolean
+      notnull: true
+      default: true
+    next_run:
+      type: timestamp
+      notnull: true

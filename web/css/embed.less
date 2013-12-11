@@ -1,0 +1,182 @@
+.ef-list
+{
+  a.primary
+  {
+    font-size: 1.08em;
+  }
+
+  a.details.profile
+  {
+    font-size: 0.92em;
+  }
+
+  table
+  {
+    width: 100%;
+    td
+    {
+      padding: 3px 5px;
+    }
+    tr + tr.date td
+    {
+      padding-top: 20px;
+    }
+  }
+
+  .details 
+  {
+    .section
+    {
+      margin-bottom: 10px;
+      &.inset
+      {
+        background: #e5e5e5;
+        padding: 5px;
+      }
+    }
+
+    .media-description
+    {
+      font-size: 0.92em;
+      color: #666;
+      margin: 2px 0 5px;
+      padding: 0 5px;
+    }
+
+    .categories, .tags, .disciplines, .contact
+    {
+      font-size: 0.92em;
+      color: #666;
+      .plain.icon
+      {
+        float: left;
+        margin-top: -1px;
+        margin-right: 3px;
+      }
+    }
+
+    .blurb
+    {
+      &.full
+      {
+        display: none;
+      }
+    }
+
+    .map-cover
+    {
+      width: 225px;
+    }
+
+    .filter-header
+    {
+      margin-bottom: 2px;
+      h4
+      {
+        float: left;
+      }
+    }
+
+    .info-list
+    {
+      list-style-type: none;
+      li
+      {
+        overflow: hidden;
+        clear: both;
+      }
+
+      .detail
+      {
+        float: left;
+        &.no-info
+        {
+          width: 100% !important;
+        }
+      }
+
+      .info
+      {
+        float: right;
+        font-size: 0.875em;
+        color: #888;
+        margin-top: 2px;
+      }    
+
+      &.details
+      {
+        .detail { width: 65%; }
+        .info { width: 33%; }
+        li { padding: 0 0 5px; }
+      }
+
+      .buy
+      {
+        float: right;
+        font-size: 0.875em;
+        margin-top: 1px;
+      }
+
+      &.dates
+      {
+        .detail { width: 30%; }
+        .info { width: 50%; } 
+        .buy { width: 20%; text-align: right;}
+      }
+
+      .separator
+      {
+        color: #888;
+      }
+    }
+
+    .website
+    {
+      text-align: center;
+      a
+      {
+        text-overflow: ellipsis;
+      }
+    }
+    &.event
+    {
+      .section > .cost-and-tickets
+      {
+        font-size: 1.125em;
+        text-align: left;
+        line-height: 1.0;
+        .cost, a
+        {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .google-map
+  {
+    position: relative;
+    a
+    {
+      display: block;
+      line-height: 0;
+    }
+    .map-cover
+    {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 225px;
+      height: 24px;
+      color: white;
+      display: none;
+      background: rgba(0,0,0,.5);
+      text-align: center;
+      line-height: 24px
+    }  
+    &:hover .map-cover
+    {
+      display: block;
+    }
+  }
+}

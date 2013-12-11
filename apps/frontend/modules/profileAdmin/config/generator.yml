@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Profile
+    theme:                 ownerAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          profile_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      filter:
+        display: [name, is_group, location_id]
+      list:
+        display: [=name, is_group, _account, _location, created_at]
+        title: Profile Admin
+        sort: [created_at, desc]
+        table_method: buildQueryForProfileAdmin
+      form:
+        class: ProfileAdminForm
+      edit:
+        title: Edit Profile
+      new:
+        title: New Profile
+        actions:
+          _save: 
+          _list: 

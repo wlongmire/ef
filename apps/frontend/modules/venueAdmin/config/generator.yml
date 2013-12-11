@@ -1,0 +1,33 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Venue
+    theme:                 ownerAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          venue_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new: { label: "New Venue", credentials: [[admin, site_admin]] }
+      fields:
+        blurb:
+          is_real: false
+      list:
+        display: [=name, location, _address, created_at]
+        title: Venue Admin
+        sort: [created_at, desc]
+      filter:
+        display: [name, location_id]
+      form:    ~
+      edit: 
+        title: Edit Venue
+      new:
+        title: New Venue
+        actions:
+          _save: 
+          _list: 

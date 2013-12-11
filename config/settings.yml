@@ -1,0 +1,70 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:         true
+    logging_enabled:        true
+    
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    # Form security secret (CSRF protection)
+    cache:                  on       # Enable the template cache
+    csrf_secret:            c2a9266e2daa5641996baed3d9b595c25a66b4f6
+
+    default_timezone: 'America/New_York'
+
+    enabled_modules:
+      - sfGuardAuth
+      - a
+      - aBlog
+      - aBlogAdmin
+      - aBlogSlot
+      - aBlogSingleSlot
+      - aButtonSlot
+      - aFileSlot
+      - aImage
+      - aMedia
+      - aMediaBackend
+      - aNavigation
+      - aRawHTMLSlot
+      - aRichTextSlot
+      - aTextSlot
+      - aSlideshowSlot
+      - aVideoSlot
+      - jquery
+      - wfAddons
+      
+    # Output escaping settings
+    escaping_strategy:      false
+    escaping_method:        ESC_SPECIALCHARS
+
+    etag:                   on        # Enable etag handling
+
+    login_module:           sfGuardAuth     # To be called when a non-authenticated user
+    login_action:           signin          # Tries to access a secure page
+    secure_module:          sfGuardAuth
+    secure_action:          signin
+
+    rich_text_fck_js_dir: apostrophePlugin/js/fckeditor
+    
+    standard_helpers:       [Partial, Cache, JavascriptBase, Tag, Common, a, wfCommon]
+
+    # Enable the database manager
+    use_database:           true

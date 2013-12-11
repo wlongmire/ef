@@ -1,0 +1,63 @@
+{{#each dateGroup}}
+	<div class="date_entry">
+		<h4 id="date_heading"><span class="text">{{formatDate this}}</span></h4>
+		{{#each entry}}
+			<div class="event_entry">
+				
+				<div class="event_head">
+					{{#ifImageFlag}}
+					{{#ifShow 'image'}}
+				
+					{{#ifImageExists this}}
+						{{#with Picture}}
+						<img class="event_image" alt="{{name}}" width="{{getImageWidth this}}" height="{{getImageHeight this}}"  src="http://www.eventsfilter.com/uploads/media_items/{{slug}}.120.75.s.{{format}}">
+						{{/with}}
+					{{else}}
+						<div style="width:120px; height:75px; display:block"></div>
+					{{/ifImageExists}}
+				
+					{{/ifShow}}
+					{{/ifImageFlag}}
+
+					<p><a id="event_title" class="detail event text" data-id="{{id}}" data-type="event" href="http://www.eventsfilter.com/api/event/show/{{id}}">{{name}}</a></p>
+				</div>
+
+				<div class="event_details">
+					<div class="event_type">
+						{{#if Profiles}}
+							{{#ifShow 'profile'}}
+							<p><a id="profile_name" class="detail profile text" data-id="{{Profiles.[0].id}}" data-type="profile" href="http://www.eventsfilter.com/api/profile/show/{{Profiles.[0].id}}">{{Profiles.[0].name}}</a></p>
+							{{/ifShow}}
+						{{/if}}
+							
+						{{#if Disciplines}}
+						{{#ifShow 'disciplines'}}
+							<p id="discipline_name" class="text">{{getDisciplines this}}
+							</p>
+						{{/ifShow}}
+						{{/if}}
+					</div>
+
+					<div class="event_location">
+						{{#if Venue}} 
+							{{#ifShow 'venue'}}
+							<a id="venue_name" class="detail venue text" data-id="{{Venue.id}}" data-type="venue" href="http://www.eventsfilter.com/api/venue/show/{{Venue.id}}">{{Venue.name}}</a>
+							{{/ifShow}}
+
+							{{#ifShow 'location'}}
+							<p id="neighborhood_name" class="text">{{Venue.Location.name}}</p>
+							{{/ifShow}}
+						{{/if}}
+					</div>
+
+					<div class="event_time_cost">
+						<p id="time_text" class="text">{{getTime this}}</p>
+						<p id="cost_text" class="text">{{getCost this}}</p>
+					</div>
+
+					<div class="details_container" data-status="empty"></div>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+{{/each}}

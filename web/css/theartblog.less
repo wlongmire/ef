@@ -1,0 +1,64 @@
+@import 'global';
+
+body.full { background: @colors_bg_body; }
+#faux-body 
+{ 
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.dropdown-nav
+{
+  margin-top: 6px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+#header
+{
+  .logo
+  {
+    margin-left: 5px;
+  }
+}
+#content
+{
+  padding: 0 5px;
+}
+
+.page-component
+{
+  &.accessory
+  {
+    float: right;
+    right: 0; /*positioned absolute by js sometimes*/
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-left: 15px;
+    margin-right: -5px;
+    padding-right: 15px;
+    margin-top: -1px;
+  }
+  &.main
+  {
+    float: left;
+  }
+}
+.filter-data
+{
+  tr.even td, tr.odd td
+  {
+    border-top: 1px solid #eee;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  tr:first-child.odd td
+  {
+    border-top: 0 none;
+  }
+}
+
+.a-area-footer-area
+{
+  border-top: 1px solid #eee;
+  margin-left: 10px;
+}

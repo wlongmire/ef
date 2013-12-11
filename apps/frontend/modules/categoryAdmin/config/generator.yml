@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Category
+    theme:                 treeAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          category_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        actions:
+          _new: { label: New Category }
+        batch_actions: { }
+        display: [name]
+        max_per_page: 999999        
+        object_actions:
+          newChild:
+            label: Add Child
+          _edit:
+            label: Edit
+          _delete:
+            label: Delete
+        sort: [name, asc]            
+        title: Category Admin
+        tree_column: name
+      filter:
+        class: false
+      form:    ~
+      edit:
+        title: Edit Category
+      new:
+        title: New Category

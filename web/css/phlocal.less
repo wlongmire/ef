@@ -1,0 +1,41 @@
+@import 'global';
+
+body.full { background: @background; }
+.page-component
+{
+  @page_component();
+  &.accessory
+  {
+    float: right;
+    right: 0; /*positioned absolute by js sometimes*/ 
+  }
+  &.main
+  {
+    float: left;
+  }
+}
+
+.filter-data tr.even
+{
+  background: darken(@colors_bg_component, 5%);
+}
+
+.dropdown-nav
+{
+  @border_radius(4px);
+  a
+  {
+    font-size: 1.125em;    
+  }
+  > li:first-child
+  {
+    margin-left: 5px;
+  }
+  margin-bottom: 12px;
+}
+
+.a-area-footer-area
+{
+  @page_component();
+  padding: 10px;
+}

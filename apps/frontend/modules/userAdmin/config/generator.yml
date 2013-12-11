@@ -1,0 +1,34 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardUser
+    theme:                 aAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          user_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [=full_name, email_address, created_at, last_login]
+        title: Account Admin
+        sort: [created_at, desc]        
+      filter:
+        display: [first_name, last_name, email_address]        
+      form:
+        class: sfGuardUserAdminForm
+        display:
+          NONE: [=email_address, first_name, last_name, groups_list]
+          Set Password: [_password_help, password, password_again]
+      edit:
+        title: Edit Account
+      new:
+        title: New Account
+        actions:
+          _save: 
+          _list: 

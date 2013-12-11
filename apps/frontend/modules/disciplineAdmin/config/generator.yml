@@ -1,0 +1,39 @@
+generator:
+  class: myDoctrineGeneratorTree
+  param:
+    model_class:           discipline
+    theme:                 treeAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          discipline_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        actions:
+          _new: { label: New Discpline }
+        batch_actions: { }
+        display: [name]
+        max_per_page: 999999        
+        object_actions:
+          newChild:
+            label: Add Child
+          _edit:
+            label: Edit
+          _delete:
+            label: Delete
+        sort: [name, asc]
+        title: Discipline Admin
+        tree_column: name
+      filter:
+        class: false
+      form:    ~
+      edit:
+        title: 'Edit Discipline'
+      new:
+        title: 'New Discipline'
